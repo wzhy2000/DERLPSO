@@ -197,10 +197,6 @@ class Model():
                                                             self.alpha * (reward + self.gamma * max(self.qTable[self.currentState]) - self.qTable[self.preState][self.currentState]))
             self.qTable[self.preState][self.currentState] = newQ
 
-            print(self.gBest, end=" ")
-            print(self.fit)
-            print(f"---------------------------------------------- 迭代 {t} ---------------------------------")
-
     def getGBest(self):
         return self.gBest
 
