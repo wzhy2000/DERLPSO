@@ -51,9 +51,9 @@ The following can be set in the Model:
 
 `layersList`: Optional set of layers
 
-`upper`: The upper limit of the value during initialization of the example (the corresponding lower limit is assigned to it)
+`upper`: The upper limit of uniform distribution sampling and the upper limit of logarithmically initialized positive sampling
 
-`lower`：Lower limit of logarithmic initialization
+`lower`：The lower limit of logarithmically initialized positive sampling (for uniform distribution initialization, the lower limit is the negative value of the upper limit)
 
 `threshold`: When half of the maximum iteration times are reached, if the error has not reached this threshold, the particle will be reinitialized
 
