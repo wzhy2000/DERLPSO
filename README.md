@@ -26,17 +26,6 @@ To use the model to estimate parameters, you need to:
 
 (Refer to the `lotka-volterra` structure defined in ODE_Demo.py)
 
-#### 1）Defining differential equations
-
-```
-def lotka_volterra(state, t, α, β, γ, δ):
-    l, v = state
-    dxdt = α * l - β * l * v
-    dydt = δ * l * v - γ * v
-    return [dxdt, dydt]
-```
-
-
 ### For PDE
 
 Just include PDE.py in the code - in addition to the standard library, scipy and fipy are also required.
@@ -68,6 +57,32 @@ The following can be set in the Model:
 `threshold`: When half of the maximum iteration times are reached, if the error has not reached this threshold, the particle will be reinitialized
 
 ## Examples
+
+#### 1）Defining ODEs structure
+
+```
+def lotka_volterra(state, t, α, β, γ, δ):
+    l, v = state
+    dxdt = α * l - β * l * v
+    dydt = δ * l * v - γ * v
+    return [dxdt, dydt]
+```
+
+#### 2）Simulating ODE Time Series Data
+
+```
+time =  np.arange(0, 4, step=(4 - 0) / 10)
+data = odeint(lotka_volterra, [0, 0], time, args=(a, b, c, d))
+```
+
+#### 3）Using the model to estimate parameters
+
+```
+from ODE import Model
+model = Model(lotka_volterra, 4, data, time, threshold=1e-04)
+model.initParticles()
+model.iterator()
+```
 
 For your convenience, we provide an ODE（ODE_Demo.py） and a PDE（PDE_Demo.py） example respectively, which introduces how to use this model.
 
