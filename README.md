@@ -66,7 +66,7 @@ from scipy.integrate import odeint
 from ODE import Model
 ```
 
-#### 2）Define ODEs structure
+#### 2) Define ODEs structure
 
 ```
 def fitzhugh_nagumo(state, t, a, b, c ,d):
@@ -76,14 +76,14 @@ def fitzhugh_nagumo(state, t, a, b, c ,d):
     return [dvdt, dwdt]
 ```
 
-#### 3）Simulate ODE Time Series Data
+#### 3) Simulate ODE Time Series Data
 
 ```
 time =  np.arange(0, 4, step=(4 - 0) / 10)
 data = odeint(fitzhugh_nagumo, [0, 0], time, args=(a, b, c, d))
 ```
 
-#### 4）Use the model to estimate parameters
+#### 4) Use the model to estimate parameters
 
 ```
 model = Model(ODEModel=fitzhugh_nagumo, paramNum=4, data=data, time=time)
@@ -91,7 +91,7 @@ model.initParticles()
 model.iterator()
 ```
 
-#### 4) Get the estimated results
+#### 5) Get the estimated results
 
 ```
 print(f"Param: {np.array([a, b, c, d])}")
