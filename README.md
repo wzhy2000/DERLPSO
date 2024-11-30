@@ -63,4 +63,4 @@ For your convenience, we provide an ODE（ODE_Demo.py） and a PDE（PDE_Demo.py
 
 ## How to cite
 
-(1) Sun, W. K., Fan X. Y., Jia, L. J., Chu. T., Yau, S. T., Wu, R. L., Wang Z. (2024). Estimating unknown parameters in differential equations with a reinforcement learning based PSO method. (https://doi.org/10.48550/arXiv.2411.08651)
+(1) Sun, W. K., Fan X. Y., Jia, L. J., Chu. T., Yau, S. T., Wu, R. L., & Wang Z. (2024). Estimating unknown parameters in differential equations with a reinforcement learning based PSO method. (https://doi.org/10.48550/arXiv.2411.08651)
