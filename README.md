@@ -76,7 +76,7 @@ def fitzhugh_nagumo(state, t, a, b, c ,d):
     return [dvdt, dwdt]
 ```
 
-#### 3) Simulate ODE Time Series Data
+#### 3) Simulate ODE time series data
 
 ```
 time =  np.arange(0, 4, step=(4 - 0) / 10)
