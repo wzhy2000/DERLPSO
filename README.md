@@ -2,15 +2,15 @@
 
 DERLPSO can solve the unknown parameters of differential equations. At the same time, DERLPSO can avoid the shortcomings of traditional numerical methods that are highly sensitive to initial values ​​and prone to falling into local optimality. The DERLPSO method performs well in solving unknown parameters of differential equations and has the advantages of high accuracy, strong versatility, and independence from initial values.
 
-## REQUIRED SOFTWARE
+## Required software
 
 - Python 3.8.0
 - scipy 1.10.1 
 - fipy 3.4.5
 
-## USAGE
+## Usage
 
-### FOR ODE
+### For ODE
 
 Just include ODE.py in the code - in addition to the standard library, scipy is also required.
 
@@ -27,7 +27,7 @@ To use the model to solve parameters, you need to:
 (Refer to the `lotka-volterra` structure defined in ODE_Demo.py)
 
 
-### FOR PDE
+### For PDE
 
 Just include PDE.py in the code - in addition to the standard library, scipy and fipy are also required.
 
@@ -41,7 +41,7 @@ To use the model to solve parameters, you need to:
 
 (Refer to the `heat` structure defined in PDE_Demo.py)
 
-## OTHER SETTINGS
+## Other settings
 
 The following can be set in the Model:
 
@@ -57,6 +57,10 @@ The following can be set in the Model:
 
 `threshold`: When half of the maximum iteration times are reached, if the error has not reached this threshold, the particle will be reinitialized
 
-## EXAMPLES
+## Examples
 
 For your convenience, we provide an ODE（ODE_Demo.py） and a PDE（PDE_Demo.py） example respectively, which introduces how to use this model.
+
+## How to cite
+
+(1) Wenkui Sun, Xiaoya Fan, Lijuan Jia, Tinyi Chu, Shing-Tung Yau, Rongling Wu, Zhong Wang (2024). Estimating unknown parameters in differential equations with a reinforcement learning based PSO method. (https://doi.org/10.48550/arXiv.2411.08651 )
