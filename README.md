@@ -26,6 +26,16 @@ To use the model to estimate parameters, you need to:
 
 (Refer to the `lotka-volterra` structure defined in ODE_Demo.py)
 
+#### 1）Defining differential equations
+
+```
+def lotka_volterra(state, t, α, β, γ, δ):
+    l, v = state
+    dxdt = α * l - β * l * v
+    dydt = δ * l * v - γ * v
+    return [dxdt, dydt]
+```
+
 
 ### For PDE
 
@@ -51,7 +61,7 @@ The following can be set in the Model:
 
 `layersList`: Optional set of layers
 
-`upper`: The upper limit of uniform distribution sampling and the upper limit of logarithmically initialized positive sampling
+`upper`: Upper limit value for uniform distribution initialization and upper limit value for logarithmic initialization positive sampling
 
 `lower`：The lower limit of logarithmically initialized positive sampling (for uniform distribution initialization, the lower limit is the negative value of the upper limit)
 
