@@ -76,14 +76,23 @@ def fitzhugh_nagumo(state, t, a, b, c ,d):
     return [dvdt, dwdt]
 ```
 
-#### 3) Simulate ODE time series data
+#### 3) Simulation equation parameters
+
+```
+a = np.random.normal(0.4, 0.8)
+b = np.random.normal(1.3, 0.8)
+c = np.random.normal(1, 0.8)
+d = np.random.normal(1, 0.8)
+```
+
+#### 4) Simulate ODE time series data
 
 ```
 time =  np.arange(0, 4, step=(4 - 0) / 10)
 data = odeint(fitzhugh_nagumo, [0, 0], time, args=(a, b, c, d))
 ```
 
-#### 4) Use the model to estimate parameters
+#### 5) Use the model to estimate parameters
 
 ```
 model = Model(ODEModel=fitzhugh_nagumo, paramNum=4, data=data, time=time)
@@ -91,7 +100,7 @@ model.initParticles()
 model.iterator()
 ```
 
-#### 5) Get the estimated results
+#### 6) Get the estimated results
 
 ```
 print(f"Param: {np.array([a, b, c, d])}")
