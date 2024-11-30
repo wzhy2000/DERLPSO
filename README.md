@@ -14,7 +14,7 @@ DERLPSO can solve the unknown parameters of differential equations. At the same 
 
 Just include ODE.py in the code - in addition to the standard library, scipy is also required.
 
-To use the model to solve parameters, you need to:
+To use the model to estimate parameters, you need to:
 
 `ODEModel`: Ordinary differential equation to be solved
 
@@ -31,7 +31,7 @@ To use the model to solve parameters, you need to:
 
 Just include PDE.py in the code - in addition to the standard library, scipy and fipy are also required.
 
-To use the model to solve parameters, you need to:
+To use the model to estimate parameters, you need to:
 
 `PDEModel`: Partial differential equation to be solved, it is necessary to provide a structure for calculating state variable data based on parameters
 
