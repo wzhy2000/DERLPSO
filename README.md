@@ -58,30 +58,49 @@ The following can be set in the Model:
 
 ## Examples
 
-#### 1）Defining ODEs structure
+#### 1) Import required packages
 
 ```
-def lotka_volterra(state, t, α, β, γ, δ):
-    l, v = state
-    dxdt = α * l - β * l * v
-    dydt = δ * l * v - γ * v
-    return [dxdt, dydt]
+import numpy as np
+from scipy.integrate import odeint
+from ODE import Model
 ```
 
-#### 2）Simulating ODE Time Series Data
+#### 2）Define ODEs structure
+
+```
+def fitzhugh_nagumo(state, t, a, b, c ,d):
+    v, w = state
+    dvdt = d * (v - v ** 3 / 3 + w - c)
+    dwdt = (-1 / d) * (v - a + b * w)
+    return [dvdt, dwdt]
+```
+
+#### 3）Simulate ODE Time Series Data
 
 ```
 time =  np.arange(0, 4, step=(4 - 0) / 10)
-data = odeint(lotka_volterra, [0, 0], time, args=(a, b, c, d))
+data = odeint(fitzhugh_nagumo, [0, 0], time, args=(a, b, c, d))
 ```
 
-#### 3）Using the model to estimate parameters
+#### 4）Use the model to estimate parameters
 
 ```
-from ODE import Model
-model = Model(lotka_volterra, 4, data, time, threshold=1e-04)
+model = Model(ODEModel=fitzhugh_nagumo, paramNum=4, data=data, time=time)
 model.initParticles()
 model.iterator()
+```
+
+#### 4) Get the estimated results
+
+```
+print(f"Param: {np.array([a, b, c, d])}")
+print("Best:", ["{:.16f}".format(x) for x in model.getGBest()])
+print(f"Fit: {model.getFit()}")
+
+Param: [1.20074502 2.35474693 0.38332407 2.02531496]
+Best: ['1.2007450195631340', '2.3547469310196574', '0.3833240710142340', '2.0253149605158263']
+Fit: 7.414830285890858e-32
 ```
 
 For your convenience, we provide an ODE（ODE_Demo.py） and a PDE（PDE_Demo.py） example respectively, which introduces how to use this model.
